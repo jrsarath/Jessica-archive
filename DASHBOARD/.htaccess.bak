@@ -1,0 +1,7 @@
+Options -Indexes
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^jrsjessica\.in [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://jrsjessica.in/$1 [R=301,L]
