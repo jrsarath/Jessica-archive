@@ -5,6 +5,6 @@
     <title>TEST FILE</title>
   </head>
   <body>
-    
+    <script src="../CORE/PUBLIC/DEPENDENCY/VENDOR/firebase.min.js"></script>
   </body>
 </html>
