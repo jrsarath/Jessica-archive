@@ -5,6 +5,6 @@
     <title>TEST FILE</title>
   </head>
   <body>
-    <script src="../CORE/PUBLIC/DEPENDENCY/VENDOR/firebase.min.js"></script>
+    <script src="../AI/jessica.init.js"></script>
   </body>
 </html>
