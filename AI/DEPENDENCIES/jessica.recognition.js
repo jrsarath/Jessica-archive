@@ -48,7 +48,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   var lastStartedAt = 0;
   var autoRestartCount = 0;
   var debugState = false;
-  var debugStyle = 'font-weight: bold; color: #00f;';
+  var debugStyle = 'font-weight: bold; color: #2196F3;';
   var pauseListening = false;
   var _isListening = false;
 

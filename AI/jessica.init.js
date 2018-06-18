@@ -4,20 +4,15 @@
 
 /* include skills and DEPENDENCIES */
 include([
+   // include Base DEPENDENCIES
+   '../AI/DEPENDENCIES/jessica.recognition.js',
    '../AI/DEPENDENCIES/jessica.voice.js',
-   '../AI/DEPENDENCIES/jessica.recognition.js'
+   // include SKILLS
+   '../AI/SKILLS/clock.skills.js',
 ], function(){
-  jessica.setLanguage("en-IN");
+  jessica.setLanguage("en-US");
   jessica.debug(true);
   jessicaVoice.setDefaultVoice("Hindi Female");
-
-  var globalcmd = "Hey Jessica "
-  var commands = { 'hello :ai': helloFunction, 'howdy': helloFunction, 'hi': helloFunction, 'whats up': helloFunction}
-  function helloFunction(){
-    jessicaVoice.speak("Hi there.");
-    console.log("Hi")
-  }
-  jessica.addCommands(commands);
   jessica.start({autoRestart: true, continuous: true});
 });
 /* End include skills and DEPENDENCIES */

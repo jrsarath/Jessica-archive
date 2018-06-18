@@ -1,11 +1,16 @@
+var debugStyle = 'font-weight: bold; color: #2196F3;';
+var successStyle = 'font-weight: bold; color: #4CAF50;';
+var warnStyle = 'font-weight: bold; color: #FFCC00;';
+var errorStyle = 'font-weight: bold; color: #f44336;';
+
 if ("undefined" != typeof jessicaVoice)
-    console.log("Voice Module already Loaded"),
-    console.log(jessicaVoice);
+    console.log("Jessica voice: %cmodule already loaded", warnStyle),
+    console.log("%c"+jessicaVoice, errorStyle);
 else
     var jessicaVoice = function() {
         var a = this;
-        a.version = "1.5.8";
-        console.log("jessicaVoice r" + a.version);
+        a.version = "1.5.8 - Powered by responsivevoice.org";
+        console.log("Jessica voice: %cv"+a.version, debugStyle);
         a.jessicaVoices = [
               {
                   name: "UK English Female",
@@ -2709,22 +2714,22 @@ else
         a.forcedFallbackMode = !1;
         a.speechAllowedByUser = !0;
         a.log = function(b) {
-            a.debug && console.log(b)
+            a.debug && console.log("%c"+b. warnStyle)
         }
         ;
         a.init = function() {
             a.is_android && (a.useTimer = !0);
-            a.is_opera || "undefined" === typeof speechSynthesis ? (console.log("RV: Voice synthesis not supported"),
+            a.is_opera || "undefined" === typeof speechSynthesis ? (console.log("Jessica Voice: %cnot supported", errorStyle),
             a.enableFallbackMode()) : setTimeout(function() {
                 var b = setInterval(function() {
                     var c = window.speechSynthesis.getVoices();
-                    0 != c.length || null != a.systemvoices && 0 != a.systemvoices.length ? (console.log("RV: Voice support ready"),
+                    0 != c.length || null != a.systemvoices && 0 != a.systemvoices.length ? (console.log("Jessica Voice: %cready", successStyle),
                     a.systemVoicesReady(c),
-                    clearInterval(b)) : (console.log("Voice support NOT ready"),
+                    clearInterval(b)) : (console.log("Jessica voice: %cnot ready", errorStyle),
                     a.voicesupport_attempts++,
                     a.voicesupport_attempts > a.VOICESUPPORT_ATTEMPTLIMIT && (clearInterval(b),
                     null != window.speechSynthesis ? a.iOS ? (a.iOS11 ? a.systemVoicesReady(a.cache_ios11_voices) : a.iOS10 ? a.systemVoicesReady(a.cache_ios10_voices) : a.iOS9 ? a.systemVoicesReady(a.cache_ios9_voices) : a.systemVoicesReady(a.cache_ios_voices),
-                    console.log("RV: Voice support ready (cached)")) : (console.log("RV: speechSynthesis present but no system voices found"),
+                    console.log("Jessica Voice: %cready(cached)", successStyle)) : (console.log("Jessica Voice: %cready but no system voices found", warnStyle),
                     a.enableFallbackMode()) : a.enableFallbackMode()))
                 }, 100)
             }, 100);
@@ -2741,7 +2746,7 @@ else
         a.enableFallbackMode = function() {
             a.fallbackMode = !0;
             a.forcedFallbackMode = !0;
-            console.log("RV: Enabling fallback mode");
+            console.log("Jessica Voice: %cfallback mode", warnStyle);
             a.mapRVs();
             null != a.OnVoiceReady && a.OnVoiceReady.call();
             a.Dispatch("OnReady");
@@ -2790,18 +2795,18 @@ else
                         0 < f.length && k.push(f)
                     } else
                         k.push(b);
-                    console.log(k);
+                    console.log("Jessica voice: %c"+k, debugStyle);
                     a.multipartText = k;
                     null == c ? (g = a.default_rv,
                     a.setDefaultVoice(g.name)) : g = a.getjessicaVoice(c);
-                    !0 === g.deprecated && console.warn("jessicaVoice: Voice " + g.name + " is deprecated and will be removed in future releases");
+                    !0 === g.deprecated && console.log("Jessica voice: %cVoice " + g.name + " is deprecated and will be removed in future releases", warnStyle);
                     f = {};
                     if (null != g.mappedProfile)
                         f = g.mappedProfile;
                     else if (f.systemvoice = a.getMatchedVoice(g),
                     f.collectionvoice = {},
                     null == f.systemvoice) {
-                        console.log("RV: ERROR: No voice found for: " + c);
+                        console.log("Jessica voice: %cNo voice found for: " + c, errorStyle);
                         return
                     }
                     if (a.checkSpeechAllowed()) {
@@ -3164,7 +3169,7 @@ else
                     return;
                 a.allowSpeechDiv_appearances = null == a.allowSpeechDiv_appearances ? 1 : ++a.allowSpeechDiv_appearances;
                 if (2 < a.allowSpeechDiv_appearances)
-                    return console.log("jessicaVoice: Speech not allowed by user"),
+                    return console.log("Jessica Voice: %cSpeech not allowed by user", errorStyle),
                     !1;
                 var c = document.createElement("style");
                 c.innerHTML = '.rvNotification{position:fixed;background-color:#fff;text-align:center;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:400;line-height:1.5;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);z-index:10000;width:100vw;left:0;bottom:0;font-size:1rem;padding-bottom:.5em;padding-right:.5em}.rvButtonRow{padding-right:2em;padding-bottom:1em;text-align:right;font-size:medium}.rvButton{cursor:pointer;display:inline-block;margin-left:1em;padding:.8em 2em;border-radius:3px;font-size:small}.rvButtonAllow{border:none;background-color:#2b8cff;color:#fff}.rvButtonDeny{border:1px solid #2b8cff;color:#2b8cff;background-color:#fff}.rvTextRow{padding-top:1em;padding-bottom:2em}@media (min-width:576px){.rvNotification{width:60vw;left:20vw}}@media (min-width:768px){.rvNotification{width:50vw;left:25vw}}@media (min-width:992px){.rvNotification{width:40vw;left:30vw}}@media (min-width:1200px){.rvNotification{width:30vw;left:35vw}}';
