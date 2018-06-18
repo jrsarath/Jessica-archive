@@ -1,6 +1,6 @@
 window.onload = function(){
   include([
-    'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'
+    '../AI/DEPENDENCIES/moment.min.js'
   ], function(){
     function momentTime(){
       window.timeNow = moment().format('h:mm a');
