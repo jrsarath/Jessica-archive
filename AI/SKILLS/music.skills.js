@@ -7,6 +7,7 @@ function init() {
 var searchMusic = {'search for *musicname':searchYoutube}
 var playMusic = {'play music':startPlayback}
 var pauseMusic = {'pause music':pausePlayback}
+var stopMusic = {'stop music':stopPlayback}
 function searchYoutube(musicname){
   var name = musicname;
   speak("Here is what i found");
@@ -47,3 +48,4 @@ function search(name){
 jessica.addCommands(searchMusic);
 jessica.addCommands(playMusic);
 jessica.addCommands(pauseMusic);
+jessica.addCommands(stopMusic);
