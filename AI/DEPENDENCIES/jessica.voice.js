@@ -3409,3 +3409,5 @@ else
             a.init()
         })
     }, jessicaVoice = new jessicaVoice;
+
+window.speak = jessicaVoice.speak;

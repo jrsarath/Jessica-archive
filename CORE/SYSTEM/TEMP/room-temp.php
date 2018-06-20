@@ -17,11 +17,11 @@ if ($handle) {
                  );
                  echo json_encode($data);
              } else {
-                print "No motherfucking temperature read!";
+                echo "Unable to read temperature!";
              }
     }
     fclose($handle);
 } else {
-    print "No motherfucking sensors found!";
+    echo "No sensors found!";
 }
 ?>
