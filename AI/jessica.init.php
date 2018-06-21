@@ -23,10 +23,14 @@ var liveDB = firebase.database().ref();
 // set jessica voice and recognition defaults
 jessica.setLanguage("en-US");
 jessica.debug(true);
-jessicaVoice.setDefaultVoice("Hindi Female");
+jessicaVoice.setDefaultVoice("US English Female");
+
+// PERSONAL Settings
+var user = "Junior" // what should JESSICA call you
 var tempUnit = "C"; // Temp UNIT - "C" - celcius or "F"- fahrenheit
-// picking up random responses for natural feels
-Array.prototype.response = function () {
+
+// EXTRA Functions
+Array.prototype.response = function () { // picking up random responses for natural feels
     return this[Math.floor(Math.random() * this.length)]
 }
 // include SKILLS
@@ -35,6 +39,7 @@ Array.prototype.response = function () {
     include $filename;
   }
 ?>
-// Start recognition
-jessica.start({autoRestart: true, continuous: true});
+//WAKEUP call
+var wakeUP = jessica.getSpeechRecognizer();
+jessica.start({autostart:true, continuous: true});
 /* END JESSICA CORE */

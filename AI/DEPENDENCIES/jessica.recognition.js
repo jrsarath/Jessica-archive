@@ -19,17 +19,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }
 })(typeof window !== 'undefined' ? window : undefined, function (root, undefined) {
   "use strict";
-
-  /**
-   * # Quick Tutorial, Intro and Demos
-   *
-   * The quickest way to get started is to visit the [jessica homepage](https://www.talater.com/jessica/).
-   *
-   * For a more in-depth look at jessica, read on.
-   *
-   * # API Reference
-   */
-
   var jessica;
 
   // Get the SpeechRecognition object, while handling browser prefixes
