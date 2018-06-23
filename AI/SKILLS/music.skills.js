@@ -1,11 +1,15 @@
+// init youtube player
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('music-player');
+}
+
 function init() {
   gapi.client.setApiKey("AIzaSyAwmta7h-g2U74ttKX2mg3Ns9ujgl_WyPo");
-  gapi.client.load("youtube", "v3", function() {
-      // yt api is ready
-  });
+  gapi.client.load("youtube", "v3");
 }
 //var searchMusic = {'search for *musicname':searchYoutube}
-var searchMusicAndPlay = {'search and play *musicname':searchandplay}
+var searchMusicAndPlay = {'search and play *musicname':searchandplay, 'play *musicname':searchandplay}
 var playMusic = {'play music':startPlayback}
 var resumeMusic = {'resume music': resumePlayback, 'resume playing': resumePlayback}
 var pauseMusic = {'pause music':pausePlayback, 'pause playing':pausePlayback}
@@ -21,46 +25,90 @@ function searchandplay(musicname){
   searchplay(name);
 }
 function speakPlaying(){
-  speak("currently playing "+$("#music-player").attr("data-title"));
+  if (player.getPlayerState() == 2 || player.getPlayerState() == 1 || player.getPlayerState() == -1) {
+    speak("currently playing "+$("#music-player").attr("data-title"));
+  } else {
+    speak("No song is being played")
+  }
 }
 function startPlayback(){
   speak("Playing "+$("#music-player").attr("data-title"));
-  $('#music-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  player.playVideo();
 }
 function pausePlayback(){
-  speak("Music Paused.");
-  $('#music-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+  if (player.getPlayerState() == 1) {
+    speak("Music Paused.");
+    player.pauseVideo();
+  } else {
+    speak("Music isn't playing");
+  }
 }
 function resumePlayback(){
-  speak("Resuming.");
-  $('#music-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+  if (player.getPlayerState() == 2) {
+    speak("Resuming.");
+    player.playVideo();
+  } else {
+    speak("Music isn't paused");
+  }
 }
 function stopPlayback(){
-  speak("I stopped that");
-  $('#music-player')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+  if (player.getPlayerState() == 2 || player.getPlayerState() == 1 || player.getPlayerState() == -1) {
+    speak("I stopped that");
+    player.stopVideo();
+  } else {
+    speak("Nothing to stop");
+  }
+}
+var volAsWish = {'set volume to *vol%': setVolumeToWish}
+function setVolumeToWish(vol){
+  player.setVolume(vol);
+}
+var mute = {'mute': muteThis}
+function muteThis(){
+  if (player.isMuted() == false) {
+    player.mute();
+    speak("muted");
+  } else {
+    speak("Already muted");
+  }
+}
+var unmute = {'unmute': unmuteThis}
+function unmuteThis() {
+  if (player.isMuted() == true) {
+    player.unMute();
+    speak("unmuted");
+  } else {
+    speak("volume is already on");
+  }
 }
 
 // YOUTUBE functions
 function searchandplay(name){
+  //speak("Okay");
   var request = gapi.client.youtube.search.list({
        part: "snippet",
        type: "video",
        q: encodeURIComponent(name).replace(/%20/g, "+"),
        maxResults: 3,
-       order: "viewCount"
+       order: "relevance"
   });
   request.execute(function(response) {
-     var results = response.result.items;
-     console.log(results);
-     $("#music-player").attr("src", "https://www.youtube.com/embed/"+results[0].id.videoId+"?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0&version=3&enablejsapi=1");
-     $("#music-player").attr("data-title", results[0].snippet.title);
-     /*$.each(results.items, function(index, item) {
-       $.get("tpl/item.html", function(data) {
-           $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-       });
-     });*/
-     speak("Playing "+results[0].snippet.title);
+     window.youtubeSearchResults = response.result.items;
+     console.log(youtubeSearchResults);
+     player.loadVideoById(youtubeSearchResults[0].id.videoId);
+     $("#music-player").attr("data-title", youtubeSearchResults[0].snippet.title);
+     speak("Playing "+youtubeSearchResults[0].snippet.title);
   });
+  setTimeout(function() {
+    if (player.getPlayerState() == -1) {
+       player.loadVideoById(youtubeSearchResults[1].id.videoId);
+    }
+  }, 2000);
+  setTimeout(function() {
+    if (player.getPlayerState() == -1) {
+       player.loadVideoById(youtubeSearchResults[2].id.videoId);
+    }
+  }, 5000);
 }
 //jessica.addCommands(searchMusic);
 jessica.addCommands(searchMusicAndPlay);
@@ -69,3 +117,6 @@ jessica.addCommands(pauseMusic);
 jessica.addCommands(resumeMusic);
 jessica.addCommands(stopMusic);
 jessica.addCommands(whatsplaying);
+jessica.addCommands(volAsWish);
+jessica.addCommands(mute);
+jessica.addCommands(unmute);

@@ -3,4 +3,10 @@ function clearConsoleLog(){
   console.clear();
   speak("Console Cleared")
 }
+var reloadSelf = {'reload yourself': reload};
+function reload(){
+  speak("Reloading.");
+  location.reload();
+}
 jessica.addCommands(clearConsole);
+jessica.addCommands(reloadSelf);
