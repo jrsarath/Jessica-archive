@@ -59,28 +59,6 @@ function stopPlayback(){
     speak("Nothing to stop");
   }
 }
-var volAsWish = {'set volume to *vol%': setVolumeToWish}
-function setVolumeToWish(vol){
-  player.setVolume(vol);
-}
-var mute = {'mute': muteThis}
-function muteThis(){
-  if (player.isMuted() == false) {
-    player.mute();
-    speak("muted");
-  } else {
-    speak("Already muted");
-  }
-}
-var unmute = {'unmute': unmuteThis}
-function unmuteThis() {
-  if (player.isMuted() == true) {
-    player.unMute();
-    speak("unmuted");
-  } else {
-    speak("volume is already on");
-  }
-}
 
 // YOUTUBE functions
 function searchandplay(name){
@@ -117,6 +95,3 @@ jessica.addCommands(pauseMusic);
 jessica.addCommands(resumeMusic);
 jessica.addCommands(stopMusic);
 jessica.addCommands(whatsplaying);
-jessica.addCommands(volAsWish);
-jessica.addCommands(mute);
-jessica.addCommands(unmute);
