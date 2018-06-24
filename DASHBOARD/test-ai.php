@@ -5,7 +5,7 @@
     <title>TEST FILE</title>
   </head>
   <body>
-    <div id="music-player" style="display:none;"></div>
+    <div id="music-player" style="/*display:none;*/"></div>
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/jquery.min.js" charset="utf-8"></script>
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/firebase.min.js" charset="utf-8"></script>
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/moment.min.js" charset="utf-8"></script>
