@@ -9,4 +9,5 @@ On Going project - under development
 ## Todo
 1. Add more skills
 
-&copy; 2018 | Jr Sarath
+
+&copy; 2018 - Jr Sarath | jrsarath@outlook.com
