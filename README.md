@@ -10,4 +10,4 @@ On Going project - under development
 1. Add more skills
 
 <br>
-&copy; 2018 - Jr Sarath | jrsarath@outlook.com
+&copy; 2018 - Jr Sarath
