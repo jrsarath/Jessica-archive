@@ -10,12 +10,12 @@ function sayClock(){
 }
 var weekDayToday = {'what day it is': sayWeekDay};
 function sayWeekDay(){
-  var res = ["its "+window.weekDay+" today", "its "+window.weekDay]
+  var res = ["its "+window.weekDay+" today", "its "+window.weekDay];
   speak(res.response());
 }
 var dateToday = {'what date it is': sayDate};
 function sayDate(){
-  speak("its "+window.date+" today")
+  speak("its "+window.date+" today");
 }
 jessica.addCommands(clock);
 jessica.addCommands(weekDayToday);

@@ -1,9 +1,9 @@
-var volAsWish = {'set volume to *vol%': setVolumeToWish}
+var volAsWish = {'set volume to *vol%': setVolumeToWish};
 function setVolumeToWish(vol){
   player.setVolume(vol);
   speak("Volume set to "+vol+"%");
 }
-var mute = {'mute': muteThis}
+var mute = {'mute': muteThis};
 function muteThis(){
   if (player.isMuted() == false) {
     player.mute();
@@ -12,7 +12,7 @@ function muteThis(){
     speak("Already muted");
   }
 }
-var unmute = {'unmute': unmuteThis}
+var unmute = {'unmute': unmuteThis};
 function unmuteThis() {
   if (player.isMuted() == true) {
     player.unMute();

@@ -9,12 +9,12 @@ function init() {
   gapi.client.load("youtube", "v3");
 }
 //var searchMusic = {'search for *musicname':searchYoutube}
-var searchMusicAndPlay = {'search and play *musicname':searchandplay, 'play *musicname':searchandplay}
-var playMusic = {'play music':startPlayback}
-var resumeMusic = {'resume music': resumePlayback, 'resume playing': resumePlayback}
-var pauseMusic = {'pause music':pausePlayback, 'pause playing':pausePlayback}
-var stopMusic = {'stop music':stopPlayback, 'stop playing':stopPlayback}
-var whatsplaying = {"what's playing now": speakPlaying, "what's playing": speakPlaying}
+var searchMusicAndPlay = {'search and play *musicname':searchandplay, 'play *musicname':searchandplay};
+var playMusic = {'play music':startPlayback};
+var resumeMusic = {'resume music': resumePlayback, 'resume playing': resumePlayback};
+var pauseMusic = {'pause music':pausePlayback, 'pause playing':pausePlayback};
+var stopMusic = {'stop music':stopPlayback, 'stop playing':stopPlayback};
+var whatsplaying = {"what's playing now": speakPlaying, "what's playing": speakPlaying};
 
 function searchYoutube(musicname){
   var name = musicname;
@@ -28,7 +28,7 @@ function speakPlaying(){
   if (player.getPlayerState() == 2 || player.getPlayerState() == 1 || player.getPlayerState() == -1) {
     speak("currently playing "+$("#music-player").attr("data-title"));
   } else {
-    speak("No song is being played")
+    speak("No song is being played");
   }
 }
 function startPlayback(){

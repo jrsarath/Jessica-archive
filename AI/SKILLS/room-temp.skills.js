@@ -1,3 +1,4 @@
+var temp;
 var roomTemp = {'room temperature': getRoomTemp, 'room temp': getRoomTemp};
 function getRoomTemp(){
     $.ajax({
@@ -10,14 +11,14 @@ function getRoomTemp(){
           var tempC = JSON.parse(e).celcius +" Degree celcius";
           var tempF = JSON.parse(e).fahrenheit +" Degree fahrenheit";
           if (tempUnit == "C") {
-            var temp = tempC;
+            temp = tempC;
           } else if (tempUnit == "F") {
-            var temp = tempF;
+            temp = tempF;
           }
-          speak("currently, its "+temp)
+          speak("currently, its "+temp);
         }
       }, error: function(e){
-        speak("I was unable to get Room temperature")
+        speak("I was unable to get Room temperature");
       }
     });
 
