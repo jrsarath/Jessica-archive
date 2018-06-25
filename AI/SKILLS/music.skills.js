@@ -1,20 +1,20 @@
 // init youtube player
 var player;
 var playlist = [];
-var previousIndex = 0;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('music-player', {
       disablekb:1,
       rel:0,
       events: {
         onStateChange: function(event) {
-          if(event.data == -1 || event.data == 0) {
-            var index = player.getPlaylistIndex();
+          var prevIndex = player.getPlaylistIndex();
+          console.log(event.data);
+          if(event.data == 0) {
+            console.log("Video ended");
             if(player.getPlaylist().length != playlist.length) {
-              //find last items position and load with +Position
-              player.loadPlaylist(playlist, previousIndex+1);
+              console.log("reloading playlist");
+              player.loadPlaylist(playlist, prevIndex()+1);
             }
-            previousIndex = index;
           }
        }
       }

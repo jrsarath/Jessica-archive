@@ -4,7 +4,7 @@ On Going project - under development
 
 ## Bugs
 1. - [x] Add play Control filters, exclude from play :Song.
-2. - [ ] Music listing skips 1 item when 2 or more songs added
+2. - [ ] Music listing skips 1 item when not playing last item
 
 ## Todo
 1. Add more skills
