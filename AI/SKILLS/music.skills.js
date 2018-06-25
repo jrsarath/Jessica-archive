@@ -1,20 +1,16 @@
 // init youtube player
 var player;
 var playlist = [];
+var prevPlaylist = [];
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('music-player', {
       disablekb:1,
       rel:0,
       events: {
         onStateChange: function(event) {
-          var prevIndex = player.getPlaylistIndex();
-          console.log(event.data);
           if(event.data == 0) {
             console.log("Video ended");
-            if(player.getPlaylist().length != playlist.length) {
-              console.log("reloading playlist");
-              player.loadPlaylist(playlist, prevIndex()+1);
-            }
+            doNext();
           }
        }
       }
@@ -34,10 +30,10 @@ function searchandplay(musicname){
   var name = musicname;
   if (name == "music" || name == "next" || name == "previous") {
     if (name == "next") {
-      player.loadPlaylist(playlist, player.getPlaylistIndex()+1);
+      doNext();
     }
     if (name == "previous") {
-      player.loadPlaylist(playlist, player.getPlaylistIndex()-1);
+      doPrev();
     }
     if (name == "music") {
 
@@ -50,14 +46,14 @@ function searchandplay(musicname){
 var whatsplaying = {"what's playing now": speakPlaying, "what's playing": speakPlaying};
 function speakPlaying(){
   if (player.getPlayerState() == 2 || player.getPlayerState() == 1 || player.getPlayerState() == -1) {
-    speak("currently playing "+$("#music-player").attr("data-title"));
+    speak("currently playing "+player.getVideoData().title);
   } else {
     speak("No song is being played");
   }
 }
 var playMusic = {'start playing':startPlayback};
 function startPlayback(){
-  speak("Playing "+$("#music-player").attr("data-title"));
+  speak("Playing "+player.getVideoData().title);
   player.playVideo();
 }
 var pauseMusic = {'pause music':pausePlayback, 'pause playing':pausePlayback};
@@ -117,8 +113,7 @@ function searchplay(name){ // youtube direct play
      if (playlist.length == 0) {
        // define first play cmd
        playlist.push(youtubeSearchResults[0].id.videoId);
-       player.loadPlaylist(playlist);
-       $("#music-player").attr("data-title", youtubeSearchResults[0].snippet.title);
+       player.loadVideoById(playlist[0]);
        speak("Playing "+youtubeSearchResults[0].snippet.title);
        fallbackPlay(youtubeSearchResults);
      } else {
@@ -149,16 +144,26 @@ function fallbackPlay(youtubeSearchResults){
     if (player.getPlayerState() == -1) {
        playlist.splice(playlist.indexOf(youtubeSearchResults[0].id.videoId), 1);
        playlist.push(youtubeSearchResults[1].id.videoId);
-       player.loadPlaylist(playlist);
+       player.loadVideoById(playlist[0]);
     }
   }, 2000);
   setTimeout(function() {
     if (player.getPlayerState() == -1) {
        playlist.splice(playlist.indexOf(youtubeSearchResults[1].id.videoId), 1);
        playlist.push(youtubeSearchResults[2].id.videoId);
-       player.loadPlaylist(playlist);
+       player.loadVideoById(playlist[0]);
     }
   }, 5000);
+}
+function doNext(){
+  prevPlaylist.push(playlist[0]);
+  playlist.shift();
+  player.loadVideoById(playlist[0]);
+}
+function doPrev(){
+  playlist.unshift(prevPlaylist[prevPlaylist.length-1]);
+  prevPlaylist.pop();
+  player.loadVideoById(playlist[0]);
 }
 // END YOUTUBE functions
 
