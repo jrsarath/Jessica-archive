@@ -10,7 +10,9 @@ function onYouTubeIframeAPIReady() {
         onStateChange: function(event) {
           if(event.data == 0) {
             console.log("Video ended");
-            doNext();
+            if (playlist.length > 1) {
+              doNext();
+            }
           }
        }
       }
@@ -30,10 +32,24 @@ function searchandplay(musicname){
   var name = musicname;
   if (name == "music" || name == "next" || name == "previous") {
     if (name == "next") {
-      doNext();
+      if (playlist.length > 1) {
+        doNext();
+        setTimeout(function() {
+          speak("Playing "+player.getVideoData().title);
+        }, 1000);
+      } else {
+        speak("there are No songs in list");
+      }
     }
     if (name == "previous") {
-      doPrev();
+      if (prevPlaylist.length >= 1) {
+        doPrev();
+        setTimeout(function() {
+          speak("Playing "+player.getVideoData().title);
+        }, 1000);
+      } else {
+        speak("No songs were played earlier");
+      }
     }
     if (name == "music") {
 
