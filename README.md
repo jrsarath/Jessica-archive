@@ -7,7 +7,7 @@ On Going project - under development
 2. - [x] Music list skips 1 item when not playing the last item from list
 
 ## Todo
-1. Add more skills
+1. - [ ] Add more skills
 
 <br>
 &copy; 2018 - Jr Sarath
