@@ -12,6 +12,9 @@ function onYouTubeIframeAPIReady() {
             console.log("Video ended");
             if (playlist.length > 1) {
               doNext();
+            } if (playlist.length == 1) {
+              prevPlaylist.push(playlist[0]);
+              playlist.shift();
             }
           }
        }
@@ -112,7 +115,12 @@ var prevSong = {'': playPrev};
 function playPrev(){
 
 }
-
+var clearList = {'Clear Playlist': clearPlaylist};
+function clearPlaylist(){
+  window.playlist = [];
+  window.prevPlaylist = [];
+  speak("Playlist cleared");
+}
 // YOUTUBE functions
 function searchplay(name){ // youtube direct play
   //speak("Okay");
@@ -193,3 +201,4 @@ jessica.addCommands(whatsplaying);
 jessica.addCommands(queMusic);
 jessica.addCommands(nextSong);
 jessica.addCommands(prevSong);
+jessica.addCommands(clearList);
