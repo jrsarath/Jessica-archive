@@ -3409,5 +3409,15 @@ else
             a.init()
         })
     }, jessicaVoice = new jessicaVoice;
-
-window.speak = jessicaVoice.speak;
+    window.speak = jessicaVoice.speak;
+    /*function speak(e){
+      $.when(window.prevVolume = player.getVolume()).done(function(){
+        $.when(player.setVolume("20")).done(function(){
+          $.when(
+            jessicaVoice.speak(e)
+          ).done(function(){
+            player.setVolume(prevVolume);
+          });
+        })
+      });
+    }*/

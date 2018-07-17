@@ -55,7 +55,7 @@ function searchandplay(musicname){
       }
     }
     if (name == "music") {
-
+      player.playVideo();
     }
   } else {
     speak("Okay");
@@ -140,7 +140,7 @@ function searchplay(name){ // youtube direct play
        player.loadVideoById(playlist[0]);
        speak("Playing "+youtubeSearchResults[0].snippet.title);
        fallbackPlay(youtubeSearchResults);
-     } else {
+     } else if (playlist.length >= 1){
        // define add to list cmd
        playlist.push(youtubeSearchResults[0].id.videoId);
        speak("adding "+youtubeSearchResults[0].snippet.title+" to the list");

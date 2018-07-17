@@ -26,9 +26,9 @@ jessica.debug(true);
 jessicaVoice.setDefaultVoice("US English Female");
 
 // PERSONAL Settings
-var user = "Junior" // what should JESSICA call you
+var user = "Junior"; // what should JESSICA call you
 var tempUnit = "C"; // Temp UNIT - "C" - celcius or "F"- fahrenheit
-
+var baseLocation = 'Kolkata'; // Default location weather purposes
 // EXTRA Functions
 Array.prototype.response = function () { // picking up random responses for natural feels
     return this[Math.floor(Math.random() * this.length)]

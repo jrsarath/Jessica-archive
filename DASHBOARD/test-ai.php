@@ -9,6 +9,7 @@
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/jquery.min.js" charset="utf-8"></script>
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/firebase.min.js" charset="utf-8"></script>
     <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/moment.min.js" charset="utf-8"></script>
+    <script src="../CORE/PUBLIC/DEPENDENCIES/VENDOR/weather.js" charset="utf-8"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="../AI/jessica.init.php" charset="utf-8"></script>
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
