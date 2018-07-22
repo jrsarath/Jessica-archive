@@ -1,8 +1,6 @@
 # JESSICA
 An Open-Source Home automation suite <br />
-
-
-[<b>Live Demo:</b>]{https://jrsjessica.in/test-ai.php]
+[<b>Live Demo:</b>](https://jrsjessica.in/test-ai.php)<br>
 N.B: It's a unstable demo version and constantly get changed
 
 ## Ai Skills List
@@ -14,8 +12,6 @@ N.B: It's a unstable demo version and constantly get changed
 6. - [ ] Alarms and Timers
 7. - [ ] System Monitoring
 
-## Kindly submit your ideas for new skills at issues section
-
-
+### Kindly submit your ideas for new skills at issues section
 <br>
 &copy; 2018 - Jr Sarath
