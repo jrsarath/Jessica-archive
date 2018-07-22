@@ -1,6 +1,6 @@
 # JESSICA
 An Open-Source Home automation suite <br />
-<b>Live Demo:</b>[Demo](https://jrsjessica.in/test-ai.php)<br>
+<b>Live Demo:</b> [Demo](https://jrsjessica.in/test-ai.php)<br>
 N.B: It's a unstable demo version and constantly get changed
 
 ## Ai Skills List
