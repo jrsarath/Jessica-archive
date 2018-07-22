@@ -12,6 +12,6 @@ N.B: It's a unstable demo version and constantly get changed
 6. - [ ] Alarms and Timers
 7. - [ ] System Monitoring
 
-### Kindly submit your ideas for new skills at issues section
+#### Kindly submit your ideas for new skills [Here](https://github.com/jrsarath/JESSICA/issues/new)
 <br>
 &copy; 2018 - Jr Sarath
