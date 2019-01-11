@@ -4,7 +4,8 @@
   "description": "Open Source AI replacing JESSICA",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/jrsarath/Titania#readme",
   "dependencies": {
+    "annyang": "^2.6.1",
     "express": "^4.16.4"
   }
 }
