@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jrsarath/Titania/issues"
   },
-  "homepage": "https://github.com/jrsarath/Titania#readme"
+  "homepage": "https://github.com/jrsarath/Titania#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
