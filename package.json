@@ -1,0 +1,22 @@
+{
+  "name": "titania",
+  "version": "0.0.1",
+  "description": "Open Source AI replacing JESSICA",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrsarath/Titania.git"
+  },
+  "keywords": [
+    "Titania"
+  ],
+  "author": "Jr Sarath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrsarath/Titania/issues"
+  },
+  "homepage": "https://github.com/jrsarath/Titania#readme"
+}
