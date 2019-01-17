@@ -3,7 +3,7 @@ An effort to make a voice-assistance in node+javascript
 <br>
 Made with :heart: in Kolkata, India
 <hr>
-Licensed under *MIT License*
+Licensed under MIT License
 
 Copyright (c) 2019 **Jr Sarath**
 
