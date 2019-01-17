@@ -1,2 +1,2 @@
 # Titania
-Open Source Ai
+An effort to make a voice-assistance in javascript+php
