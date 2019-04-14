@@ -402,14 +402,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 // VOICE LIBRARY
-if ("undefined" != typeof titaniaVoice) 
-    console.log("Titania voice: %cmodule already loaded", warnStyle),
-    console.log("%c" + titaniaVoice, errorStyle);
-else var titaniaVoice = function () {
+if ("undefined" != typeof elisaVoice) 
+    console.log("Elisa voice: %cmodule already loaded", warnStyle),
+    console.log("%c" + elisaVoice, errorStyle);
+else var elisaVoice = function () {
         var a = this;
         a.version = "1.5.12";
-        console.log("Titania voice: %cv" + a.version, debugStyle);
-        a.titaniaVoices = [{
+        console.log("Elisa voice: %cv" + a.version, debugStyle);
+        a.elisaVoices = [{
                 name: "UK English Female",
                 flag: "gb",
                 gender: "f",
@@ -3231,8 +3231,8 @@ else var titaniaVoice = function () {
         a.tstCompiled = function (a) {
             return eval("typeof xy === 'undefined'")
         };
-        a.fallbackServicePath = "https://code.titaniaVoice.org/" + (a.tstCompiled() ? "" : "develop/") + "getvoice.php";
-        a.default_rv = a.titaniaVoices[0];
+        a.fallbackServicePath = "https://code.elisaVoice.org/" + (a.tstCompiled() ? "" : "develop/") + "getvoice.php";
+        a.default_rv = a.elisaVoices[0];
         a.debug = !1;
         a.rvsMapped = !1;
         a.forcedFallbackMode = !1;
@@ -3243,12 +3243,12 @@ else var titaniaVoice = function () {
         a.init = function () {
             a.is_android && (a.useTimer = !0);
             a.is_opera ||
-                "undefined" === typeof speechSynthesis ? (console.log("Titania voice: %cnot supported", errorStyle), a.enableFallbackMode()) : setTimeout(function () {
+                "undefined" === typeof speechSynthesis ? (console.log("Elisa voice: %cnot supported", errorStyle), a.enableFallbackMode()) : setTimeout(function () {
                     var b = setInterval(function () {
                         var c = window.speechSynthesis.getVoices();
-                        0 != c.length || null != a.systemvoices && 0 != a.systemvoices.length ? (console.log("Titania voice: %cready", successStyle), a.systemVoicesReady(c), clearInterval(b)) : (console.log("Titania voice: %cnot ready", errorStyle), a.voicesupport_attempts++, a.voicesupport_attempts > a.VOICESUPPORT_ATTEMPTLIMIT && (clearInterval(b), null != window.speechSynthesis ?
+                        0 != c.length || null != a.systemvoices && 0 != a.systemvoices.length ? (console.log("Elisa voice: %cready", successStyle), a.systemVoicesReady(c), clearInterval(b)) : (console.log("Elisa voice: %cnot ready", errorStyle), a.voicesupport_attempts++, a.voicesupport_attempts > a.VOICESUPPORT_ATTEMPTLIMIT && (clearInterval(b), null != window.speechSynthesis ?
                             a.iOS ? (a.iOS11 ? a.systemVoicesReady(a.cache_ios11_voices) : a.iOS10 ? a.systemVoicesReady(a.cache_ios10_voices) : a.iOS9 ? a.systemVoicesReady(a.cache_ios9_voices) : a.systemVoicesReady(a.cache_ios_voices), 
-                            console.log("Titania voice: %cready(cached)", successStyle)): (console.log("Titania voice: %cready but no system voices found", warnStyle),
+                            console.log("Elisa voice: %cready(cached)", successStyle)): (console.log("Elisa voice: %cready but no system voices found", warnStyle),
                             a.enableFallbackMode()) : a.enableFallbackMode()))
                     }, 100)
                 }, 100);
@@ -3261,21 +3261,21 @@ else var titaniaVoice = function () {
             a.mapRVs();
             null != a.OnVoiceReady && a.OnVoiceReady.call();
             a.Dispatch("OnReady");
-            window.hasOwnProperty("dispatchEvent") && window.dispatchEvent(new Event("titaniaVoice_OnReady"))
+            window.hasOwnProperty("dispatchEvent") && window.dispatchEvent(new Event("elisaVoice_OnReady"))
         };
         a.enableFallbackMode = function () {
             a.fallbackMode = !0;
             a.forcedFallbackMode = !0;
-            console.log("Titania voice: %cfallback mode", warnStyle);
+            console.log("Elisa voice: %cfallback mode", warnStyle);
             a.mapRVs();
             null != a.OnVoiceReady && a.OnVoiceReady.call();
             a.Dispatch("OnReady");
-            window.hasOwnProperty("dispatchEvent") && window.dispatchEvent(new Event("titaniaVoice_OnReady"));
+            window.hasOwnProperty("dispatchEvent") && window.dispatchEvent(new Event("elisaVoice_OnReady"));
             a.Dispatch("OnServiceSwitched")
         };
         a.getVoices = function () {
-            for (var b = [], c = 0; c < a.titaniaVoices.length; c++) b.push({
-                name: a.titaniaVoices[c].name
+            for (var b = [], c = 0; c < a.elisaVoices.length; c++) b.push({
+                name: a.elisaVoices[c].name
             });
             return b
         };
@@ -3312,14 +3312,14 @@ else var titaniaVoice = function () {
                         }
                         0 < f.length && k.push(f)
                     } else k.push(b);
-                    console.log("Titania voice: %c" + k, debugStyle);
+                    console.log("Elisa voice: %c" + k, debugStyle);
                     a.multipartText = k;
-                    null == c ? (g = a.default_rv, a.setDefaultVoice(g.name)) : g = a.gettitaniaVoice(c);
-                    !0 === g.deprecated && console.log("Titania voice: %cVoice " + g.name + " is deprecated and will be removed in future releases", warnStyle);
+                    null == c ? (g = a.default_rv, a.setDefaultVoice(g.name)) : g = a.getelisaVoice(c);
+                    !0 === g.deprecated && console.log("Elisa voice: %cVoice " + g.name + " is deprecated and will be removed in future releases", warnStyle);
                     f = {};
                     if (null != g.mappedProfile) f = g.mappedProfile;
                     else if (f.systemvoice = a.getMatchedVoice(g), f.collectionvoice = {}, null == f.systemvoice) {
-                        console.log("Titania voice: %cNo voice found for: " + c, errorStyle);
+                        console.log("Elisa voice: %cNo voice found for: " + c, errorStyle);
                         return
                     }
                     if (a.checkSpeechAllowed()) {
@@ -3455,7 +3455,7 @@ else var titaniaVoice = function () {
         a.setDefaultVoice = function (b) {
             if (a.rvsMapped) {
                 var c =
-                    a.gettitaniaVoice(b);
+                    a.getelisaVoice(b);
                 null != c && (a.default_rv = c)
             } else setTimeout(function () {
                 a.setDefaultVoice(b)
@@ -3468,8 +3468,8 @@ else var titaniaVoice = function () {
                 d = (b = d["l" + c + "s"], b && b.length ? b : (c = d["l" + c] || d["browserL" + c] || d["userL" + c]) ? [c] : c)
             } else d = void 0;
             b = d[0];
-            for (c = 0; c < a.titaniaVoices.length; c++) {
-                d = a.titaniaVoices[c];
+            for (c = 0; c < a.elisaVoices.length; c++) {
+                d = a.elisaVoices[c];
                 for (var h = 0; h < d.voiceIDs.length; h++) {
                     var k = a.voicecollection[d.voiceIDs[h]];
                     if (1 != k.fallbackvoice) {
@@ -3511,10 +3511,10 @@ else var titaniaVoice = function () {
                 if (0 === a.systemvoices[h].name.localeCompare(b) || 0 === a.systemvoices[h].name.replace(new RegExp("\\s+|" + c, "g"), "").replace(/ *\([^)]*\) */g, "").localeCompare(d)) return a.systemvoices[h];
             return null
         };
-        a.gettitaniaVoice = function (b) {
-            for (var c = 0; c < a.titaniaVoices.length; c++)
-                if (a.titaniaVoices[c].name == b) return b = a.fallbackMode, a.fallbackMode = !0 === a.titaniaVoices[c].mappedProfile.collectionvoice.fallbackvoice ||
-                    !0 === a.forcedFallbackMode ? !0 : !1, b != a.fallbackMode && (a.mapRVs(), a.Dispatch("OnServiceSwitched")), a.titaniaVoices[c];
+        a.getelisaVoice = function (b) {
+            for (var c = 0; c < a.elisaVoices.length; c++)
+                if (a.elisaVoices[c].name == b) return b = a.fallbackMode, a.fallbackMode = !0 === a.elisaVoices[c].mappedProfile.collectionvoice.fallbackvoice ||
+                    !0 === a.forcedFallbackMode ? !0 : !1, b != a.fallbackMode && (a.mapRVs(), a.Dispatch("OnServiceSwitched")), a.elisaVoices[c];
             return null
         };
         a.Dispatch = function (b) {
@@ -3594,14 +3594,14 @@ else var titaniaVoice = function () {
                     (a.fallbackMode || a.forcedFallbackMode)) && !a.click_event_detected) {
                 if (a.allowSpeechDiv) return;
                 a.allowSpeechDiv_appearances = null == a.allowSpeechDiv_appearances ? 1 : ++a.allowSpeechDiv_appearances;
-                if (2 < a.allowSpeechDiv_appearances) return console.log("Titania voice: %cSpeech not allowed by user", errorStyle), !1;
+                if (2 < a.allowSpeechDiv_appearances) return console.log("Elisa voice: %cSpeech not allowed by user", errorStyle), !1;
                 var c = document.createElement("style");
                 c.innerHTML = '.rvNotification{position:fixed;background-color:#fff;text-align:center;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:400;line-height:1.5;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);z-index:10000;width:100vw;left:0;bottom:0;font-size:1rem;padding-bottom:.5em;padding-right:.5em}.rvButtonRow{padding-right:2em;padding-bottom:1em;text-align:right;font-size:medium}.rvButton{cursor:pointer;display:inline-block;margin-left:1em;padding:.8em 2em;border-radius:3px;font-size:small}.rvButtonAllow{border:none;background-color:#2b8cff;color:#fff}.rvButtonDeny{border:1px solid #2b8cff;color:#2b8cff;background-color:#fff}.rvTextRow{padding-top:1em;padding-bottom:2em}@media (min-width:576px){.rvNotification{width:60vw;left:20vw}}@media (min-width:768px){.rvNotification{width:50vw;left:25vw}}@media (min-width:992px){.rvNotification{width:40vw;left:30vw}}@media (min-width:1200px){.rvNotification{width:30vw;left:35vw}}';
                 document.body.appendChild(c);
                 a.allowSpeechDiv = document.createElement("div");
                 a.allowSpeechDiv.classList.add("rvNotification");
                 void 0 == b && (b = {});
-                a.allowSpeechDiv.innerHTML = '<div class="rvTextRow"><strong>' + (void 0 != b.urlOverride ? b.urlOverride : window.location.hostname) + "</strong> " + (void 0 != b.textOverride ? b.textOverride : "wants to play speech") + '</div><div class="rvButtonRow"><div onclick="titaniaVoice.allowSpeechClicked(false);" class="rvButton rvButtonDeny">DENY</div><div onclick="titaniaVoice.allowSpeechClicked(true);" class="rvButton rvButtonAllow">ALLOW</div></div>';
+                a.allowSpeechDiv.innerHTML = '<div class="rvTextRow"><strong>' + (void 0 != b.urlOverride ? b.urlOverride : window.location.hostname) + "</strong> " + (void 0 != b.textOverride ? b.textOverride : "wants to play speech") + '</div><div class="rvButtonRow"><div onclick="elisaVoice.allowSpeechClicked(false);" class="rvButton rvButtonDeny">DENY</div><div onclick="elisaVoice.allowSpeechClicked(true);" class="rvButton rvButtonAllow">ALLOW</div></div>';
                 document.body.appendChild(a.allowSpeechDiv);
                 return !1
             }
@@ -3766,7 +3766,7 @@ else var titaniaVoice = function () {
                 case "pitch":
                 case "volume":
                     var b = Number(a[c]);
-                    isNaN(b) && console.warn("titaniaVoice: the parameter " + c + ' has a wrong value "' + a[c] + '". Defaults were used.');
+                    isNaN(b) && console.warn("elisaVoice: the parameter " + c + ' has a wrong value "' + a[c] + '". Defaults were used.');
                     a[c] = isNaN(b) ? "1" : a[c]
             }
             return a[c]
@@ -3801,19 +3801,19 @@ else var titaniaVoice = function () {
             a.init()
         })
     },
-titaniaVoice = new titaniaVoice;
-titaniaVoice.setDefaultVoice("US English Female");
+elisaVoice = new elisaVoice;
+elisaVoice.setDefaultVoice("US English Female");
 
 // MAIN TITANIA CLASS
-class Titania {
+class Elisa {
     engine() {
         return stt;
     }
     speak(phrase) {
         if (phrase.constructor === Array) {
-            titaniaVoice.speak(phrase[Math.floor(Math.random() * phrase.length)]);
+            elisaVoice.speak(phrase[Math.floor(Math.random() * phrase.length)]);
         } else {
-            titaniaVoice.speak(phrase);
+            elisaVoice.speak(phrase);
         }
     }
 };
