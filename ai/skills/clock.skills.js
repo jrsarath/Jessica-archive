@@ -2,7 +2,7 @@ require.config({
   paths: {
     // VENDOR DEPENDENCIES
     'jQuery': '/ai/vendor/jquery-3.3.1.min',
-    'titania': '/ai/dependencies/titania',
+    'jessica': '/ai/dependencies/jessica',
     'moment': '/ai/vendor/moment.min'
   },
   shim: {
@@ -11,8 +11,8 @@ require.config({
     }
   }
 });
-define(['jQuery', 'titania', 'moment'], function ($, titania, moment) {
-      var titania = new Titania();
+define(['jQuery', 'jessica', 'moment'], function ($, jessica, moment) {
+      var jessica = new Jessica();
       // TIME
       function momentTime() {
         window.timeNow = moment().format('h:mm a');
@@ -26,7 +26,7 @@ define(['jQuery', 'titania', 'moment'], function ($, titania, moment) {
 
       function sayClock() {
         var res = ["the time is " + window.timeNow, "its " + window.timeNow, "it's currently " + window.timeNow];
-        titania.speak(res);
+        jessica.speak(res);
       }
 
       // WEEK DAY
@@ -36,7 +36,7 @@ define(['jQuery', 'titania', 'moment'], function ($, titania, moment) {
 
       function sayWeekDay() {
         var res = ["its " + window.weekDay + " today", "its " + window.weekDay];
-        titania.speak(res);
+        jessica.speak(res);
       }
 
       // DATE
@@ -45,7 +45,7 @@ define(['jQuery', 'titania', 'moment'], function ($, titania, moment) {
       };
 
       function sayDate() {
-        titania.speak("its " + window.date + " today");
+        jessica.speak("its " + window.date + " today");
       }
     // COMBINE AND RETURN ALL COMMANDS
     var commands = $.extend(clock, weekDayToday, dateToday);

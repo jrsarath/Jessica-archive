@@ -23,7 +23,9 @@
   "homepage": "https://github.com/jrsarath/Titania#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "http-server": "^0.11.1",
     "jquery": "^3.3.1",
+    "local-server": "^0.1.8",
     "lowdb": "^1.0.0",
     "moment": "^2.23.0",
     "morgan": "^1.8.1"

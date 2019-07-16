@@ -2,7 +2,7 @@ require.config({
   paths: {
     // VENDOR DEPENDENCIES
     'jQuery': '/ai/vendor/jquery-3.3.1.min',
-    'titania': '/ai/dependencies/titania'
+    'jessica': '/ai/dependencies/jessica'
   },
   shim: {
     'jQuery': {
@@ -10,8 +10,8 @@ require.config({
     }
   }
 });
-define(['jQuery', 'titania'], function ($, titania) {
-  var titania = new Titania();
+define(['jQuery', 'jessica'], function ($, jessica) {
+  var jessica = new Jessica();
   
   // DEFINE SKILL
   var thanks = {
@@ -20,7 +20,7 @@ define(['jQuery', 'titania'], function ($, titania) {
 
   function thankYou() {
     var res = ['You are welcome ' + user, 'No problem ' + user, 'my pleasure ' + user, 'Mention Not', 'You are welcome', 'No problem', 'my pleasure'];
-    titania.speak(res);
+    jessica.speak(res);
   }
 
   return social = thanks;

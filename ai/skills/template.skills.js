@@ -2,7 +2,7 @@ require.config({
   paths: {
     // VENDOR DEPENDENCIES
     'jQuery': '/ai/vendor/jquery-3.3.1.min',
-    'titania': '/ai/dependencies/titania'
+    'jessica': '/ai/dependencies/jessica'
   },
   shim: {
     'jQuery': {
@@ -10,8 +10,8 @@ require.config({
     }
   }
 });
-define(['jQuery', 'titania'], function ($, titania) {
-    var titania = new Titania();
+define(['jQuery', 'jessica'], function ($, jessica) {
+    var jessica = new jessica();
 
     // DEFINE SKILL
 

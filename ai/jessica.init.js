@@ -4,7 +4,7 @@ require.config({
         'jQuery': '/ai/vendor/jquery.min',
         'moment': '/ai/vendor/moment.min',
         // MAIN SCRIPT
-        'elisa': '/ai/dependencies/elisa',
+        'jessica': '/ai/dependencies/jessica',
         // COMMANDS
         'commands': '/ai/skills/commands.init'
     },
@@ -16,16 +16,16 @@ require.config({
 });
 require([
     'jQuery',
-    'elisa', 
+    'jessica', 
     'commands'
-], function ($, moment, titania, commands) {
+], function ($, moment, jessica, commands) {
 
     // INITIAL SETUP
-    var elisa = new Elisa();
-    elisa.engine().setLanguage("en-US");
-    elisa.engine().debug(true);
+    var jessica = new Jessica();
+    jessica.engine().setLanguage("en-US");
+    jessica.engine().debug(true);
     // ADD COMMANDS TO ENGINE
-    //elisa.engine().addCommands(commands);
+    //jessica.engine().addCommands(commands);
     // START STT ENGINE
-    elisa.engine().start();
+    jessica.engine().start();
 });

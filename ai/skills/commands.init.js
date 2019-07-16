@@ -1,24 +1,24 @@
 require.config({
     paths: {
         // MAIN CLASS
-        'titania': '/ai/dependencies/titania',
+        'jessica': '/ai/dependencies/jessica',
         // SKILLS
         'clock': '/ai/skills/clock.skills',
         'social': '/ai/skills/social.skills'
     }
 });
 require([
-    'titania',
+    'jessica',
     'clock',
     'social'
 ], function (
-    titania, 
+    jessica, 
     clock, 
     social
 ) {
-    var titania = new Titania();
+    var jessica = new Jessica();
     var commands = $.extend(clock, social);
 
     // ADD BOOTSTRAPPED COMMANDS
-    titania.engine().addCommands(commands); 
+    jessica.engine().addCommands(commands); 
 });
