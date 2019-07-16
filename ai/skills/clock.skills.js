@@ -12,7 +12,7 @@ require.config({
   }
 });
 define(['jQuery', 'jessica', 'moment'], function ($, jessica, moment) {
-      var jessica = new Jessica();
+      var jessica = window.jessica = new Jessica();
       // TIME
       function momentTime() {
         window.timeNow = moment().format('h:mm a');
